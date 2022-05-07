@@ -294,7 +294,7 @@ namespace ProyectoFinal_POO_20221
                             //crea doctores que trabajan en la clínica veterinaria
                             Console.WriteLine("\n╔═══════════════════════════════════════════════════════════════════════════════════╗" +
                                 "\n║                                                                                   ║" +
-                                "\n║                         Ha seleccionado añadir doctores                           ║" +
+                                "\n║                         Ha seleccionado cargar doctores                           ║" +
                                 "\n║                                                                                   ║" +
                                 "\n╚═══════════════════════════════════════════════════════════════════════════════════╝");
                             break;
@@ -338,7 +338,7 @@ namespace ProyectoFinal_POO_20221
         {
             Console.WriteLine("\n╔════════════════════════════╦══════════════════════════════════════════════════════╗" +
                 "\n║      _  _                  ║  1) Registrar paciente                               ║" +
-                "\n║     (o)(o)--.              ║  2) Añadir doctores                                  ║" +
+                "\n║     (o)(o)--.              ║  2) Cargar doctores                                  ║" +
                 "\n" + @"║      \../ (  )hjw          ║  3) Iniciar consulta                                 ║" +
                 "\n" + @"╠══════m\/m--m'`═════════════╣  4) Ver historia clínica                             ║" +
                 "\n║                            ║                                                      ║" +
