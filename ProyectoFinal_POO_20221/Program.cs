@@ -340,7 +340,7 @@ namespace ProyectoFinal_POO_20221
                 "\n║      _  _                  ║  1) Registrar paciente                               ║" +
                 "\n║     (o)(o)--.              ║  2) Cargar doctores                                  ║" +
                 "\n" + @"║      \../ (  )hjw          ║  3) Iniciar consulta                                 ║" +
-                "\n" + @"╠══════m\/m--m'`═════════════╣  4) Ver historia clínica                             ║" +
+                "\n" + @"╠══════m\/m--m'`═════════════╣  4) Organizar jornada de vacunación                  ║" +
                 "\n║                            ║                                                      ║" +
                 "\n║         { MENÚ }           ║                                                      ║" +
                 "\n║                            ║  0) SALIR                                            ║" +
