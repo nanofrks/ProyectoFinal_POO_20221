@@ -12,7 +12,7 @@ namespace ProyectoFinal_POO_20221
             {
                 Saludo();
 
-                byte op = 0, op_esp = 0;
+                byte op = 0, op_esp = 0,op_vac=0;
                 bool esnro = false, esnro_esp = false;
                 List<Animal> clientes = new List<Animal>();
 
@@ -53,20 +53,24 @@ namespace ProyectoFinal_POO_20221
                                     "\n║ 3) Pájaro                          ║" +
                                     "\n║ 4) Roedor                          ║" +
                                     "\n║ 5) Pez                             ║" +
+                                    "\n║ 0) CANCELAR                        ║" +
                                     "\n╚════════════════════════════════════╝");
 
                             do
                             {
                                 Console.Write("\n  [ Opción ] : ");
                                 esnro_esp = byte.TryParse(Console.ReadLine(), out op_esp);
-                                if (!esnro_esp || op_esp > 5 || op_esp < 1)
+                                if (!esnro_esp || op_esp > 5 || op_esp < 0)
                                 {
                                     Console.WriteLine("\n  [ Por favor ingrese una opción válida ]   ");
                                 }
-                            } while (!esnro_esp || op_esp > 5 || op_esp < 1);
+                            } while (!esnro_esp || op_esp > 5 || op_esp < 0);
 
                             switch (op_esp)
                             {
+                                case 0:
+                                    Console.WriteLine("\n  [ Regresando... ]  ");
+                                        break;
                                 case 1:
                                     Console.WriteLine("\n\n  ---------- DATOS DEL PACIENTE ----------  ");
                                     Console.Write("\n  [ Nombre ] : ");
@@ -291,19 +295,139 @@ namespace ProyectoFinal_POO_20221
 
                             break;
                         case 2:
-                            //crea doctores que trabajan en la clínica veterinaria
                             Console.WriteLine("\n╔═══════════════════════════════════════════════════════════════════════════════════╗" +
                                 "\n║                                                                                   ║" +
                                 "\n║                         Ha seleccionado cargar doctores                           ║" +
                                 "\n║                                                                                   ║" +
                                 "\n╚═══════════════════════════════════════════════════════════════════════════════════╝");
+
+                            Console.WriteLine("\n  [ Presione cualquier tecla para regresar al menú ]  ");
+                            Console.ReadKey();
+                            Console.Clear();
+
                             break;
-                        case 3: //busca la historia clínica del paciente
-                            //que se desee, y se muestra en pantalla
+                        case 3:
+                            Console.WriteLine("\n╔═══════════════════════════════════════════════════════════════════════════════════╗" +
+                                "\n║                                                                                   ║" +
+                                "\n║                         Ha seleccionado inciar consulta                           ║" +
+                                "\n║                                                                                   ║" +
+                                "\n╚═══════════════════════════════════════════════════════════════════════════════════╝");
+
+                            Console.WriteLine("\n  [ Presione cualquier tecla para regresar al menú ]  ");
+                            Console.ReadKey();
+                            Console.Clear();
+
                             break;
                         case 4:
-                            //cierra el día en la clínica y calcula la cantidad 
-                            //total de ganancias en ese día
+                            Console.WriteLine("\n╔═══════════════════════════════════════════════════════════════════════════════════╗" +
+                                "\n║                                                                                   ║" +
+                                "\n║                   Ha seleccionado organizar jornada de vacunación                 ║" +
+                                "\n║                                                                                   ║" +
+                                "\n╚═══════════════════════════════════════════════════════════════════════════════════╝");
+
+                            JornadaVacunacion jornada = new JornadaVacunacion();
+                            do
+                            {
+                                Console.WriteLine("\n  [ 1: INSCRIBIR ANIMAL ]  [ 2: VER INSCRITOS ]  [ 3: VACUNAR INSCRITOS ]  [ 0: REGRESAR ]");
+
+                                
+
+                                do
+                                {
+                                    Console.Write("\n  [ Opción ] : ");
+                                    esnro = byte.TryParse(Console.ReadLine(), out op_vac);
+                                    if (!esnro || op_vac > 3 || op_vac < 0)
+                                    {
+                                        Console.WriteLine("\n  [ Por favor ingrese una opción válida ]   ");
+                                    }
+                                } while (!esnro || op_vac > 3 || op_vac < 0);
+
+                                switch (op_vac)
+                                {
+                                    case 0:
+                                        Console.WriteLine("\n  [ Regresando... ]  ");
+                                        break;
+
+                                    case 1:
+                                        Console.Write("\n  [ Ingrese el código de paciente ] : ");
+                                        string codigopaciente = Console.ReadLine();
+
+                                        if (clientes.Exists(x => x.Código == codigopaciente))
+                                        {
+                                            if (jornada.AnimalesInscritos.Exists(x => x.Código == codigopaciente))
+                                            {
+                                                Console.WriteLine("\n  [ El animal ya se encuentra inscrito en la jornada de vacunación actual ]  ");
+                                            }
+                                            else
+                                            {
+                                                foreach (var item in clientes)
+                                                {
+                                                    if (item.Código.Equals(codigopaciente))
+                                                    {
+                                                        if (item is Pez || item is Pajaro)
+                                                        {
+                                                            Console.WriteLine("\n  [ No es posible inscribir a esta especie en una jornada de vacunación ]  ");
+                                                        }
+                                                        else
+                                                        {
+                                                            jornada.Inscribir(item);
+                                                            Console.WriteLine($"\n  [ Ha inscrito de manera exitosa a {item.Nombre}  ]  ");
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("\n  [ No ha sido posible encontrar un paciente con el código ingresado ]  ");
+                                        }
+                                        break;
+
+                                    case 2:
+                                        if (jornada.AnimalesInscritos.Count > 0)
+                                        {
+                                            foreach (var item in jornada.AnimalesInscritos)
+                                            {
+                                                Console.WriteLine($"\n  ---------------------------------------------------" +
+                                                    $"\n  [ ESPECIE ] : {item.GetType().Name}" +
+                                                    $"\n  [ CÓDIGO ] : {item.Código}" +
+                                                    $"\n  [ NOMBRE ] : {item.Nombre}" +
+                                                    $"\n  [ EDAD ] : {item.Edad}" +
+                                                    $"\n  [ RAZA ] : {item.Raza}" +
+                                                    $"\n  [ DUEÑO ] : {item.Dueño}" +
+                                                    $"\n  ---------------------------------------------------");
+                                            }
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("\n  [ Aún no hay animales inscritos ]  ");
+                                        }
+                                        break;
+
+                                    case 3:
+                                        if (jornada.AnimalesInscritos.Count > 0)
+                                        {
+                                            foreach (var item in jornada.AnimalesInscritos)
+                                            {
+                                                item.Vacunar(); //llamado polimórfico
+                                            }
+                                            Console.WriteLine("\n  [ Muchas gracias por participar de la jornada :D ]  ");
+                                            op_vac = 0;
+                                            jornada.AnimalesInscritos.Clear();
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("\n  [ Aún no hay animales inscritos ]  ");
+                                        }
+
+                                        break;
+                                }
+                            } while (op_vac != 0);
+
+                            Console.WriteLine("\n  [ Presione cualquier tecla para regresar al menú ]  ");
+                            Console.ReadKey();
+                            Console.Clear();
+
                             break;
                         default:
                             break;

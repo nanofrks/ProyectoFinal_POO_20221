@@ -31,5 +31,10 @@ namespace ProyectoFinal_POO_20221
         public string Raza { get => raza; private set => raza = value; }
         public string Dueño { get => dueño; private set => dueño = value; }
         public string Tel_contacto { get => tel_contacto; private set => tel_contacto = value; }
+
+        public virtual void Vacunar()
+        {
+            Console.WriteLine($"\n       Vacunando a {this.Nombre} ...");
+        }
     }
 }

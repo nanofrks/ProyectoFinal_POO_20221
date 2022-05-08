@@ -13,5 +13,11 @@ namespace ProyectoFinal_POO_20221
         }
 
         public bool Esterilizado { get => esterilizado; private set => esterilizado = value; }
+
+        public override void Vacunar()
+        {
+            base.Vacunar();
+            Console.WriteLine("       Se ha aplicado la vacuna de forma intravenosa.");
+        }
     }
 }
