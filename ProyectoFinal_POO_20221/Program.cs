@@ -8,7 +8,7 @@ namespace ProyectoFinal_POO_20221
     {
         
         static void Main(string[] args)
-        {
+        { 
 
             try
             {
@@ -18,6 +18,7 @@ namespace ProyectoFinal_POO_20221
                 bool esnro = false, esnro_esp = false;
                 List<Animal> clientes = new List<Animal>();
                 List<Doctor> Doctores = new List<Doctor>();
+                Archivos.LecturaDoctores lecturaDoctores = new Archivos.LecturaDoctores();
 
                 do
                 {
@@ -305,7 +306,15 @@ namespace ProyectoFinal_POO_20221
                                 "\n╚═══════════════════════════════════════════════════════════════════════════════════╝");
 
 
-                            Doctores.Add(Archivos.LeerDoctores);
+                            Doctores = lecturaDoctores.LeerArchivo();
+
+                            foreach(var item in Doctores)
+                            {
+                                Console.WriteLine($"\n  [ Nombre ]: {item.Nombre}" +
+                                    $"\n  [ Edad ] : {item.Edad}" +
+                                    $"\n  [ Identificación ] : {item.Identificacion}" +
+                                    $"\n  [ Correo electrónico ] : {item.Correo_electronico}");
+                            }
 
                             Console.WriteLine("\n  [ Presione cualquier tecla para regresar al menú ]  ");
                             Console.ReadKey();

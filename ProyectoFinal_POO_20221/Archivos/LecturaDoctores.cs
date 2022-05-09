@@ -5,7 +5,7 @@ using System.IO;
 
 namespace ProyectoFinal_POO_20221.Archivos
 {
-    class LeerDoctores : ILecturaArchivo
+    class LecturaDoctores : ILecturaArchivo
     {
         String texto;
         char del=';';
@@ -23,6 +23,7 @@ namespace ProyectoFinal_POO_20221.Archivos
                 
             }
             while (string.IsNullOrWhiteSpace(texto));
+            
 
             return doctores;
 
