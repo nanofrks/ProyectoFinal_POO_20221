@@ -1,0 +1,5 @@
+39948357;Marcela Andrea Tobon Lopez;61;marcela.tobon@veterinaria.com.co
+39957193;Roger Eduardo Martinez Zapata;36;roger.martinez@veterinaria.com.co
+49702748;Camila Alejandra Gomez Restrepo;48;camila.gomez@veterinaria.com.co
+94682038;Juan Camilo Perez Quintero;27;juanc.perez@veterinaria.com.co
+84766922;Rosa Velez Tejada;50;rosa.velez@veterinaria.com.co

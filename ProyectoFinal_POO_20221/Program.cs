@@ -305,15 +305,25 @@ namespace ProyectoFinal_POO_20221
                                 "\n║                                                                                   ║" +
                                 "\n╚═══════════════════════════════════════════════════════════════════════════════════╝");
 
-
+                            Doctores.Clear();
                             Doctores = lecturaDoctores.LeerArchivo();
 
-                            foreach(var item in Doctores)
+                            if (Doctores.Count==0)
                             {
-                                Console.WriteLine($"\n  [ Nombre ]: {item.Nombre}" +
-                                    $"\n  [ Edad ] : {item.Edad}" +
-                                    $"\n  [ Identificación ] : {item.Identificacion}" +
-                                    $"\n  [ Correo electrónico ] : {item.Correo_electronico}");
+                                Console.WriteLine("\n  [ No se agregaron doctores ]  ");
+                            }
+                            else
+                            {
+                                foreach (var item in Doctores)
+                                {
+                                    Console.WriteLine($"\n  [ Nombre ]: {item.Nombre}" +
+                                        $"\n  [ Edad ] : {item.Edad}" +
+                                        $"\n  [ Identificación ] : {item.Identificacion}" +
+                                        $"\n  [ Correo electrónico ] : {item.Correo_electronico}");
+                                }
+
+                                Console.WriteLine("\n  [ Doctore(s) agregado(s) correctamente ]  ");
+
                             }
 
                             Console.WriteLine("\n  [ Presione cualquier tecla para regresar al menú ]  ");
