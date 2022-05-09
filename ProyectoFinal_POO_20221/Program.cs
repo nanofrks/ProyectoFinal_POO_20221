@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace ProyectoFinal_POO_20221
 {
     internal class Program
     {
+        
         static void Main(string[] args)
         {
 
@@ -15,6 +17,7 @@ namespace ProyectoFinal_POO_20221
                 byte op = 0, op_esp = 0,op_vac=0;
                 bool esnro = false, esnro_esp = false;
                 List<Animal> clientes = new List<Animal>();
+                List<Doctor> Doctores = new List<Doctor>();
 
                 do
                 {
@@ -300,6 +303,9 @@ namespace ProyectoFinal_POO_20221
                                 "\n║                         Ha seleccionado cargar doctores                           ║" +
                                 "\n║                                                                                   ║" +
                                 "\n╚═══════════════════════════════════════════════════════════════════════════════════╝");
+
+
+                            Doctores.Add(Archivos.LeerDoctores);
 
                             Console.WriteLine("\n  [ Presione cualquier tecla para regresar al menú ]  ");
                             Console.ReadKey();
