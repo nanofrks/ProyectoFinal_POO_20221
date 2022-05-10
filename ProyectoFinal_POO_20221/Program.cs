@@ -14,7 +14,7 @@ namespace ProyectoFinal_POO_20221
             {
                 Saludo();
 
-                byte op = 0, op_esp = 0,op_vac=0;
+                byte op = 0, op_esp = 0,op_vac=0,op_con=0;
                 bool esnro = false, esnro_esp = false;
                 List<Animal> clientes = new List<Animal>();
                 List<Doctor> Doctores = new List<Doctor>();
@@ -316,13 +316,12 @@ namespace ProyectoFinal_POO_20221
                             {
                                 foreach (var item in Doctores)
                                 {
-                                    Console.WriteLine($"\n  [ Nombre ]: {item.Nombre}" +
-                                        $"\n  [ Edad ] : {item.Edad}" +
-                                        $"\n  [ Identificación ] : {item.Identificacion}" +
-                                        $"\n  [ Correo electrónico ] : {item.Correo_electronico}");
+                                    VerDoctores(item);
                                 }
 
-                                Console.WriteLine("\n  [ Doctore(s) agregado(s) correctamente ]  ");
+                                Console.WriteLine("\n╔════════════════════════════════════════════════════╗" +
+                                    "\n║         Doctor(es) agregado(s) correctamente       ║" +
+                                    "\n╚════════════════════════════════════════════════════╝");
 
                             }
 
@@ -337,6 +336,54 @@ namespace ProyectoFinal_POO_20221
                                 "\n║                         Ha seleccionado inciar consulta                           ║" +
                                 "\n║                                                                                   ║" +
                                 "\n╚═══════════════════════════════════════════════════════════════════════════════════╝");
+
+                            Consulta c = new Consulta();
+                            Console.Write("\n  [ Ingrese el código de paciente ] : ");
+                            string codpaciente = Console.ReadLine();
+
+                            Console.Write("\n  [ Ingrese la identificación del doctor encargado ] : ");
+                            string iddoctor = Console.ReadLine();
+
+
+                            if (clientes.Exists(x => x.Código == codpaciente) && Doctores.Exists(x => x.Identificacion == iddoctor))
+                            {
+                                foreach (var item in clientes)
+                                {
+                                    if (item.Código.Equals(codpaciente))
+                                    {
+                                        c.Paciente = item;
+                                    }
+                                }
+
+                                foreach (var item in Doctores)
+                                {
+                                    if (item.Identificacion.Equals(iddoctor))
+                                    {
+                                        c.Doctor = item;
+                                    }
+                                }
+
+                                Console.WriteLine($"\n  [ Se ha ingresado a la consulta con {c.Paciente.Nombre.ToUpper()} a cargo de {c.Doctor.Nombre.ToUpper()} ]");
+
+
+                                //menú de consulta
+
+                                Console.WriteLine("\n╔════════════════════════════════════╗ " +
+                                    "\n" + @"║    |\__/,|   (`\                   ║ " +
+                                    "\n║  _.|o o  |_   ) ) Menú de consulta ║" +
+                                    "\n║-(((---(((--------    miau!         ║" +
+                                    "\n║════════════════════════════════════╣ " +
+                                    "\n║ 1) Recetar tratamiento             ║" +
+                                    "\n║ 2) Leer historia clínica           ║" +
+                                    "\n║ 3) Escribir historia clínica       ║" +
+                                    "\n║ 4) Dar un premio al paciente       ║" +
+                                    "\n║ 0) Terminar consulta               ║" +
+                                    "\n╚════════════════════════════════════╝");
+                            }
+                            else
+                            {
+                                Console.WriteLine("\n  [ No ha sido posible encontrar un paciente y/o doctor con el código ingresado ]  ");
+                            }
 
                             Console.WriteLine("\n  [ Presione cualquier tecla para regresar al menú ]  ");
                             Console.ReadKey();
@@ -396,7 +443,9 @@ namespace ProyectoFinal_POO_20221
                                                         else
                                                         {
                                                             jornada.Inscribir(item);
-                                                            Console.WriteLine($"\n  [ Ha inscrito de manera exitosa a {item.Nombre}  ]  ");
+                                                            Console.WriteLine($"\n╔════════════════════════════════════════════════════╗" +
+                                                                $"\n     Ha inscrito de manera exitosa a {item.Nombre.ToUpper()}    " +
+                                                                $"\n╚════════════════════════════════════════════════════╝");
                                                         }
                                                     }
                                                 }
@@ -413,14 +462,7 @@ namespace ProyectoFinal_POO_20221
                                         {
                                             foreach (var item in jornada.AnimalesInscritos)
                                             {
-                                                Console.WriteLine($"\n  ---------------------------------------------------" +
-                                                    $"\n  [ ESPECIE ] : {item.GetType().Name}" +
-                                                    $"\n  [ CÓDIGO ] : {item.Código}" +
-                                                    $"\n  [ NOMBRE ] : {item.Nombre}" +
-                                                    $"\n  [ EDAD ] : {item.Edad}" +
-                                                    $"\n  [ RAZA ] : {item.Raza}" +
-                                                    $"\n  [ DUEÑO ] : {item.Dueño}" +
-                                                    $"\n  ---------------------------------------------------");
+                                                VerInscritos(item);
                                             }
                                         }
                                         else
@@ -494,6 +536,28 @@ namespace ProyectoFinal_POO_20221
                 "\n║         { MENÚ }           ║                                                      ║" +
                 "\n║                            ║  0) SALIR                                            ║" +
                 "\n╚════════════════════════════╩══════════════════════════════════════════════════════╝");
+        }
+
+        public static void VerInscritos(Animal item)
+        {
+            Console.WriteLine($"\n  ---------------------------------------------------" +
+                                                    $"\n  [ ESPECIE ] : {item.GetType().Name}" +
+                                                    $"\n  [ CÓDIGO ] : {item.Código}" +
+                                                    $"\n  [ NOMBRE ] : {item.Nombre}" +
+                                                    $"\n  [ EDAD ] : {item.Edad}" +
+                                                    $"\n  [ RAZA ] : {item.Raza}" +
+                                                    $"\n  [ DUEÑO ] : {item.Dueño}" +
+                                                    $"\n  ---------------------------------------------------");
+        }
+
+        public static void VerDoctores(Doctor item)
+        {
+            Console.WriteLine($"\n  ---------------------------------------------------------------------------" +
+                                        $"\n  [ Nombre ] : {item.Nombre}" +
+                                        $"\n  [ Edad ] : {item.Edad}" +
+                                        $"\n  [ Identificación ] : {item.Identificacion}" +
+                                        $"\n  [ Correo electrónico ] : {item.Correo_electronico}" +
+                                        $"\n  ---------------------------------------------------------------------------");
         }
     }
 }
