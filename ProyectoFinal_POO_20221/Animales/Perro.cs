@@ -19,5 +19,11 @@ namespace ProyectoFinal_POO_20221
             base.Vacunar();
             Console.WriteLine("       Se ha aplicado la vacuna de forma intravenosa.");
         }
+
+        public override void Premiar()
+        {
+            base.Premiar();
+            Console.WriteLine("       Mueve su colita alegremente mientras atrapa su nueva pelota.");
+        }
     }
 }

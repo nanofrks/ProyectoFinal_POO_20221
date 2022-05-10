@@ -12,6 +12,7 @@ namespace ProyectoFinal_POO_20221
         private string raza;
         private string dueño;
         private string tel_contacto;
+        private HistoriaClinica historiaClinica;
 
         Random r = new Random();
 
@@ -31,10 +32,16 @@ namespace ProyectoFinal_POO_20221
         public string Raza { get => raza; private set => raza = value; }
         public string Dueño { get => dueño; private set => dueño = value; }
         public string Tel_contacto { get => tel_contacto; private set => tel_contacto = value; }
+        internal HistoriaClinica HistoriaClinica { get => historiaClinica; set => historiaClinica = value; }
 
         public virtual void Vacunar()
         {
             Console.WriteLine($"\n       Vacunando a {this.Nombre} ...");
+        }
+
+        public virtual void Premiar()
+        {
+            Console.WriteLine($"\n       ¡Se le ha dado un premio a {this.Nombre}!");
         }
     }
 }

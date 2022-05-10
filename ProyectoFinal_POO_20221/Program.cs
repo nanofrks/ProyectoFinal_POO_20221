@@ -365,20 +365,42 @@ namespace ProyectoFinal_POO_20221
 
                                 Console.WriteLine($"\n  [ Se ha ingresado a la consulta con {c.Paciente.Nombre.ToUpper()} a cargo de {c.Doctor.Nombre.ToUpper()} ]");
 
+                                do
+                                {
+                                    MenuConsulta();
+                                    do
+                                    {
+                                        Console.Write("\n  [ Opción ] : ");
+                                        esnro = byte.TryParse(Console.ReadLine(), out op_con);
+                                        if (!esnro || op_con > 4 || op_con < 0)
+                                        {
+                                            Console.WriteLine("\n  [ Por favor ingrese una opción válida ]   ");
+                                        }
+                                    } while (!esnro || op_con > 4 || op_con < 0);
+                                    switch (op_con)
+                                    {
+                                        case 0:
+                                            Console.WriteLine("\n  [ Regresando... ]  ");
+                                            break;
 
-                                //menú de consulta
+                                        case 1:
+                                            Console.Write("\n  [ Escriba a continuación el tratamiento junto con sus especificaciones ] :");
+                                            string tratamiento = Console.ReadLine();
+                                            c.AñadirTratamiento(tratamiento);
+                                            break;
+                                        case 2:
+                                            c.Paciente.HistoriaClinica.LeerArchivo();
+                                            break;
+                                        case 3:
+                                            c.Paciente.HistoriaClinica.Escribir();
+                                            break;
+                                        case 4:
+                                            c.Paciente.Premiar();
+                                            break;
+                                    }
 
-                                Console.WriteLine("\n╔════════════════════════════════════╗ " +
-                                    "\n" + @"║    |\__/,|   (`\                   ║ " +
-                                    "\n║  _.|o o  |_   ) ) Menú de consulta ║" +
-                                    "\n║-(((---(((--------    miau!         ║" +
-                                    "\n║════════════════════════════════════╣ " +
-                                    "\n║ 1) Recetar tratamiento             ║" +
-                                    "\n║ 2) Leer historia clínica           ║" +
-                                    "\n║ 3) Escribir historia clínica       ║" +
-                                    "\n║ 4) Dar un premio al paciente       ║" +
-                                    "\n║ 0) Terminar consulta               ║" +
-                                    "\n╚════════════════════════════════════╝");
+                                } while (op_con != 0);
+                                
                             }
                             else
                             {
@@ -401,8 +423,6 @@ namespace ProyectoFinal_POO_20221
                             do
                             {
                                 Console.WriteLine("\n  [ 1: INSCRIBIR ANIMAL ]  [ 2: VER INSCRITOS ]  [ 3: VACUNAR INSCRITOS ]  [ 0: REGRESAR ]");
-
-                                
 
                                 do
                                 {
@@ -558,6 +578,21 @@ namespace ProyectoFinal_POO_20221
                                         $"\n  [ Identificación ] : {item.Identificacion}" +
                                         $"\n  [ Correo electrónico ] : {item.Correo_electronico}" +
                                         $"\n  ---------------------------------------------------------------------------");
+        }
+
+        public static void MenuConsulta()
+        {
+            Console.WriteLine("\n╔════════════════════════════════════╗ " +
+                                    "\n" + @"║    |\__/,|   (`\                   ║ " +
+                                    "\n║  _.|o o  |_   ) ) Menú de consulta ║" +
+                                    "\n║-(((---(((--------    miau!         ║" +
+                                    "\n║════════════════════════════════════╣ " +
+                                    "\n║ 1) Recetar tratamiento             ║" +
+                                    "\n║ 2) Leer historia clínica           ║" +
+                                    "\n║ 3) Escribir historia clínica       ║" +
+                                    "\n║ 4) Dar un premio al paciente       ║" +
+                                    "\n║ 0) Terminar consulta               ║" +
+                                    "\n╚════════════════════════════════════╝");
         }
     }
 }

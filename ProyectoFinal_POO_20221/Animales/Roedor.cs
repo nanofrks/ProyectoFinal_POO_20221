@@ -20,5 +20,11 @@ namespace ProyectoFinal_POO_20221
             Console.WriteLine("       Se ha aplicado la vacuna de forma subcutánea.");
         }
 
+        public override void Premiar()
+        {
+            base.Premiar();
+            Console.WriteLine("       Huele con emoción las frutas frescas que le han dado.");
+        }
+
     }
 }

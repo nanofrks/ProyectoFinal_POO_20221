@@ -19,5 +19,11 @@ namespace ProyectoFinal_POO_20221
             base.Vacunar();
             Console.WriteLine("       Se ha aplicado la vacuna de forma intramuscular.");
         }
+
+        public override void Premiar()
+        {
+            base.Premiar();
+            Console.WriteLine("       Salta de felicidad al oler el manjar que le han preparado");
+        }
     }
 }

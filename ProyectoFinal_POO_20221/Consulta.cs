@@ -9,7 +9,7 @@ namespace ProyectoFinal_POO_20221
         private DateTime fecha;
         private Animal paciente;
         private Doctor doctor;
-        private String tratamiento;
+        private StringBuilder tratamiento = new StringBuilder();
 
         public Consulta()
         {
@@ -17,8 +17,13 @@ namespace ProyectoFinal_POO_20221
         }
 
         public DateTime Fecha { get => fecha; private set => fecha = value; }
-        public string Tratamiento { get => tratamiento; private set => tratamiento = value; }
+        public StringBuilder Tratamiento { get => tratamiento; private set => tratamiento = value; }
         internal Animal Paciente { get => paciente; set => paciente = value; }
         internal Doctor Doctor { get => doctor; set => doctor = value; }
+
+        public void AñadirTratamiento(string t)
+        {
+            tratamiento.Append("\n" + t);
+        }
     }
 }
