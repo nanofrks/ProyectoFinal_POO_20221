@@ -23,7 +23,7 @@ namespace ProyectoFinal_POO_20221
         public override void Premiar()
         {
             base.Premiar();
-            Console.WriteLine("       Salta de felicidad al oler el manjar que le han preparado");
+            Console.WriteLine("       Salta de felicidad al oler el manjar que le han preparado.");
         }
     }
 }

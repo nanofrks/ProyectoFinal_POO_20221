@@ -17,7 +17,7 @@ namespace ProyectoFinal_POO_20221
         public override void Premiar()
         {
             base.Premiar();
-            Console.WriteLine("       Silba felizmente al comer su barrita de semillas con frutas");
+            Console.WriteLine("       Silba felizmente al comer su barrita de semillas con frutas.");
         }
     }
 }

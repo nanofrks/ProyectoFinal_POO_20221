@@ -586,7 +586,7 @@ namespace ProyectoFinal_POO_20221
                                     "\n" + @"║    |\__/,|   (`\                   ║ " +
                                     "\n║  _.|o o  |_   ) ) Menú de consulta ║" +
                                     "\n║-(((---(((--------    miau!         ║" +
-                                    "\n║════════════════════════════════════╣ " +
+                                    "\n╠════════════════════════════════════╣ " +
                                     "\n║ 1) Recetar tratamiento             ║" +
                                     "\n║ 2) Leer historia clínica           ║" +
                                     "\n║ 3) Escribir historia clínica       ║" +

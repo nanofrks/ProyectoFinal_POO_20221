@@ -15,16 +15,39 @@ namespace ProyectoFinal_POO_20221
 
                 DateTime dateTime = DateTime.Now;
 
-                sw.WriteLine(dateTime
-                            + "\n" + con.Doctor.Nombre
-                            + "\n" + con.Doctor.Identificacion
-                            + "\n" + con.Doctor.Correo_electronico
-                            + "\n\nAtendiendo a" + con.Paciente.Nombre
-                            + "\nA nombre de " + con.Paciente.Dueño + " Telefono: " + con.Paciente.Tel_contacto
-                            + "\n\nDatos del paciente:"
-                            + "\nEdad:" + con.Paciente.Edad
-                            + "\nRaza:" + con.Paciente.Raza
-                            + "\n\nTratamiento recetado: " + con.Tratamiento);
+                sw.WriteLine($"\n║  {dateTime}  ║ " +
+                    $"\n╠═══════════════════════════════════════════════════════════════════════════════════╗" +
+                    $"\n║                                                                                   ║" +
+                    $"\n║                           HISTORIA CLÍNICA DEL PACIENTE                           ║" +
+                    $"\n║                                                                                   ║" +
+                    $"\n╠═══════════════════════════════════════════════════════════════════════════════════╣" +
+                    $"\n╠═══════════════════════════════════════════════════════════════════════════════════╣" +
+                    $"\n║                              INFORMACIÓN DEL DOCTOR                               ║" +
+                    $"\n╠═══════════════════════════════════════════════════════════════════════════════════╝" +
+                    $"\n║" +
+                    $"\n║   NOMBRE  {con.Doctor.Nombre}" +
+                    $"\n║   IDENTIFICACIÓN  {con.Doctor.Identificacion}" +
+                    $"\n║   CORREO ELECTRÓNICO  {con.Doctor.Correo_electronico}" +
+                    $"\n║" +
+                    $"\n╠═══════════════════════════════════════════════════════════════════════════════════╗" +
+                    $"\n╠═══════════════════════════════════════════════════════════════════════════════════╣" +
+                    $"\n║                             INFORMACIÓN DEL PACIENTE                              ║" +
+                    $"\n╠═══════════════════════════════════════════════════════════════════════════════════╝" +
+                    $"\n║" +
+                    $"\n║   CÓDIGO  {con.Paciente.Código}" +
+                    $"\n║   NOMBRE  {con.Paciente.Nombre}" +
+                    $"\n║   RESPONSABLE  {con.Paciente.Dueño}   TEL. CONTACTO  {con.Paciente.Tel_contacto}" +
+                    $"\n║   EDAD  {con.Paciente.Edad}" +
+                    $"\n║   RAZA  {con.Paciente.Raza}" +
+                    $"\n║" +
+                    $"\n╠═══════════════════════════════════════════════════════════════════════════════════╗" +
+                    $"\n╠═══════════════════════════════════════════════════════════════════════════════════╣" +
+                    $"\n║                             DETALLES DEL TRATAMIENTO                              ║" +
+                    $"\n╠═══════════════════════════════════════════════════════════════════════════════════╝" +
+                    $"\n{con.Tratamiento}" +
+                    $"\n" +
+                    $"\n╚═══════════════════════════════════════════════════════════════════════════════════╝");
+
                 sw.Close();
             }
             catch(Exception ex)
