@@ -6,6 +6,6 @@ namespace ProyectoFinal_POO_20221
 {
     internal interface IEscrituraArchivo
     {
-        public void Escribir();
+        public void Escribir(Consulta con);
     }
 }

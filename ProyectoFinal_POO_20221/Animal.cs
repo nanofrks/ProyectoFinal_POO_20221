@@ -24,6 +24,7 @@ namespace ProyectoFinal_POO_20221
             this.Raza = raza;
             this.Dueño = dueño;
             this.Tel_contacto = tel_contacto;
+            historiaClinica = new HistoriaClinica();
         }
 
         public string Código { get => código; private set => código = value; }

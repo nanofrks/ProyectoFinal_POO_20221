@@ -392,7 +392,7 @@ namespace ProyectoFinal_POO_20221
                                             c.Paciente.HistoriaClinica.LeerArchivo();
                                             break;
                                         case 3:
-                                            c.Paciente.HistoriaClinica.Escribir();
+                                            c.Paciente.HistoriaClinica.Escribir(c);
                                             break;
                                         case 4:
                                             c.Paciente.Premiar();
