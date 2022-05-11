@@ -4,7 +4,7 @@ using System.Text;
 using System.IO;
 
 namespace ProyectoFinal_POO_20221
-{
+{ 
     internal class HistoriaClinica : IEscrituraArchivo
     {
         public void Escribir(Consulta con)
@@ -49,6 +49,10 @@ namespace ProyectoFinal_POO_20221
                     $"\n╚═══════════════════════════════════════════════════════════════════════════════════╝");
 
                 sw.Close();
+
+                Console.WriteLine("\n╔════════════════════════════════════════════════════════════════════════════════════╗" +
+                                    "\n║            Se ha generado el archivo con la historia clínica exitosamente          ║" +
+                                    "\n╚════════════════════════════════════════════════════════════════════════════════════╝");
             }
             catch(Exception ex)
             {

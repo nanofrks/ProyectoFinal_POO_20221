@@ -1,5 +1,5 @@
 
-║  11/05/2022 2:49:56 p. m.  ║ 
+║  11/05/2022 3:38:48 p. m.  ║ 
 ╠═══════════════════════════════════════════════════════════════════════════════════╗
 ║                                                                                   ║
 ║                           HISTORIA CLÍNICA DEL PACIENTE                           ║
@@ -18,16 +18,19 @@
 ║                             INFORMACIÓN DEL PACIENTE                              ║
 ╠═══════════════════════════════════════════════════════════════════════════════════╝
 ║
-║   CÓDIGO  4932
-║   NOMBRE  setsuko
-║   RESPONSABLE  coco   TEL. CONTACTO  696969
-║   EDAD  2
-║   RAZA  aveces
+║   CÓDIGO  8692
+║   NOMBRE  gluglu
+║   RESPONSABLE  mugi   TEL. CONTACTO  3089458739054
+║   EDAD  2 segundos
+║   RAZA  pulpo
 ║
 ╠═══════════════════════════════════════════════════════════════════════════════════╗
 ╠═══════════════════════════════════════════════════════════════════════════════════╣
 ║                             DETALLES DEL TRATAMIENTO                              ║
 ╠═══════════════════════════════════════════════════════════════════════════════════╝
 
+por favor agua por favor
+mentira no lo metan en agua es del splatoon no ven que se muere
+mejor metanlo en arroz
 
 ╚═══════════════════════════════════════════════════════════════════════════════════╝

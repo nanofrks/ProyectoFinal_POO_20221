@@ -389,12 +389,9 @@ namespace ProyectoFinal_POO_20221
                                             c.AñadirTratamiento(tratamiento);
                                             break;
                                         case 2:
-                                            c.Paciente.HistoriaClinica.LeerArchivo();
-                                            break;
-                                        case 3:
                                             c.Paciente.HistoriaClinica.Escribir(c);
                                             break;
-                                        case 4:
+                                        case 3:
                                             c.Paciente.Premiar();
                                             break;
                                     }
@@ -482,7 +479,7 @@ namespace ProyectoFinal_POO_20221
                                         {
                                             foreach (var item in jornada.AnimalesInscritos)
                                             {
-                                                VerInscritos(item);
+                                                jornada.VerInscritos(item);
                                             }
                                         }
                                         else
@@ -498,6 +495,11 @@ namespace ProyectoFinal_POO_20221
                                             {
                                                 item.Vacunar(); //llamado polimórfico
                                             }
+
+                                            jornada.Escribir(null);
+
+                                            
+
                                             Console.WriteLine("\n  [ Muchas gracias por participar de la jornada :D ]  ");
                                             op_vac = 0;
                                             jornada.AnimalesInscritos.Clear();
@@ -558,17 +560,6 @@ namespace ProyectoFinal_POO_20221
                 "\n╚════════════════════════════╩══════════════════════════════════════════════════════╝");
         }
 
-        public static void VerInscritos(Animal item)
-        {
-            Console.WriteLine($"\n  ---------------------------------------------------" +
-                                                    $"\n  [ ESPECIE ] : {item.GetType().Name}" +
-                                                    $"\n  [ CÓDIGO ] : {item.Código}" +
-                                                    $"\n  [ NOMBRE ] : {item.Nombre}" +
-                                                    $"\n  [ EDAD ] : {item.Edad}" +
-                                                    $"\n  [ RAZA ] : {item.Raza}" +
-                                                    $"\n  [ DUEÑO ] : {item.Dueño}" +
-                                                    $"\n  ---------------------------------------------------");
-        }
 
         public static void VerDoctores(Doctor item)
         {
@@ -586,11 +577,10 @@ namespace ProyectoFinal_POO_20221
                                     "\n" + @"║    |\__/,|   (`\                   ║ " +
                                     "\n║  _.|o o  |_   ) ) Menú de consulta ║" +
                                     "\n║-(((---(((--------    miau!         ║" +
-                                    "\n╠════════════════════════════════════╣ " +
+                                    "\n╠════════════════════════════════════╣" +
                                     "\n║ 1) Recetar tratamiento             ║" +
-                                    "\n║ 2) Leer historia clínica           ║" +
-                                    "\n║ 3) Escribir historia clínica       ║" +
-                                    "\n║ 4) Dar un premio al paciente       ║" +
+                                    "\n║ 2) Escribir historia clínica       ║" +
+                                    "\n║ 3) Dar un premio al paciente       ║" +
                                     "\n║ 0) Terminar consulta               ║" +
                                     "\n╚════════════════════════════════════╝");
         }
